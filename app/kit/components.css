@@ -1,0 +1,53 @@
+/* 
+verion 1.0
+library tailwind 3.4.1
+common css use @apply
+*/
+
+/* Typography */
+.s1 {
+	@apply font-semibold;
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
+.s2 {
+	@apply font-semibold leading-normal;
+	font-size: 1.625rem;
+}
+.s3 {
+	@apply font-semibold leading-normal;
+	font-size: 1.375rem;
+}
+.s4 {
+	@apply font-semibold leading-normal;
+	font-size: 1.125rem;
+}
+.s5 {
+	@apply font-medium leading-normal;
+	font-size: 0.9375rem;
+}
+.s6 {
+	@apply font-semibold leading-normal;
+	font-size: 0.75rem;
+}
+.button {
+	@apply font-bold leading-normal;
+	font-size: 0.9375rem;
+}
+.lead {
+	@apply font-semibold leading-normal;
+	font-size: 1.125rem;
+}
+.body {
+	font-family: 'Open Sans', sans-serif;
+	@apply font-normal leading-normal;
+	font-size: 1.125rem;
+}
+.caption {
+	font-family: 'Open Sans', sans-serif;
+	@apply font-normal leading-normal;
+	font-size: 0.75rem;
+}
+/* Display */
+
+/* Buttoms */
