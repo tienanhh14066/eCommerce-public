@@ -8,12 +8,12 @@ interface Order {
 		email: string
 	}
 	orderDate: Date
-	voucher: {
+	voucher: Array<{
 		voucherId: mongoose.Types.ObjectId
 		name: string
 		type: string
 		value: number
-	}
+	}>
 	totalPriceWithoutDiscount: number
 	totalPriceWithDiscount: number
 	products: Array<{
@@ -34,12 +34,14 @@ const orderSchema = new Schema<OrderDocument>({
 		email: { type: String, required: true },
 	},
 	orderDate: { type: Date, required: true },
-	voucher: {
-		voucherId: { type: mongoose.Types.ObjectId, required: true },
-		name: { type: String, required: true },
-		type: { type: String, required: true },
-		value: { type: Number, required: true },
-	},
+	voucher: [
+		{
+			voucherId: { type: mongoose.Types.ObjectId },
+			name: { type: String },
+			type: { type: String },
+			value: { type: Number },
+		},
+	],
 	totalPriceWithoutDiscount: { type: Number, required: true },
 	totalPriceWithDiscount: { type: Number, required: true },
 	products: [
