@@ -3,6 +3,6 @@
 @import 'kit/base-styles.css';
 
 @import 'tailwindcss/components';
-@import 'kit/components.css';
+@import 'kit/components-styles.css';
 
 @tailwind utilities;

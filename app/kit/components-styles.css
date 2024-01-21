@@ -48,6 +48,27 @@ common css use @apply
 	@apply font-normal leading-normal;
 	font-size: 0.75rem;
 }
-/* Display */
 
 /* Buttoms */
+
+button.small {
+	@apply px-3 py-1;
+}
+button.medium {
+	@apply px-4 py-3;
+}
+button.large {
+	@apply px-12 py-[1.12rem];
+}
+button.stroke {
+	@apply border-2 border-C2-C bg-white text-C1-A *:stroke-C2-A;
+}
+button.color {
+	@apply border-2 border-C2-B bg-C2-A *:stroke-C1-J text-C1-J;
+}
+button.bright {
+	@apply  border-none bg-C1-J text-C1-A *:stroke-C1-A;
+}
+button.simple {
+	@apply border-none  bg-C1-J text-C1-A *:stroke-C2-A;
+}

@@ -7,6 +7,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			lineHeight: {
+				'normal':'normal'
+			},
 			colors: {
 				// C-1
 				'C1-A': '#151515',
@@ -16,6 +19,7 @@ module.exports = {
 				'C1-E': '#EBEBEB',
 				'C1-F': '#F5F5F5',
 				'C1-H': '#F9F9F9',
+				'C1-J': '#FFF',
 				// C-2
 				'C2-A': '#6A983C',
 				'C2-B': '#46760A',
