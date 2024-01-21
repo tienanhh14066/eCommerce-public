@@ -33,6 +33,8 @@ const productSchema = new Schema<ProductDocument>({
 	stock: { type: Number, required: true },
 })
 
-const ProductModel = mongoose.model<ProductDocument>('Product', productSchema)
+const ProductModel =
+	mongoose.models.Product ||
+	mongoose.model<ProductDocument>('Product', productSchema)
 
 export default ProductModel

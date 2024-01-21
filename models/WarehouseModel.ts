@@ -51,9 +51,8 @@ const warehouseSchema = new Schema<WarehouseDocument>({
 	],
 })
 
-const WarehouseModel = mongoose.model<WarehouseDocument>(
-	'Warehouse',
-	warehouseSchema,
-)
+const WarehouseModel =
+	mongoose.models.Warehouse ||
+	mongoose.model<WarehouseDocument>('Warehouse', warehouseSchema)
 
 export default WarehouseModel
