@@ -8,7 +8,7 @@ interface Order {
 		email: string
 	}
 	orderDate: Date
-	voucher: Array<{
+	voucher?: Array<{
 		voucherId: mongoose.Types.ObjectId
 		name: string
 		type: string
@@ -34,24 +34,33 @@ const orderSchema = new Schema<OrderDocument>({
 		email: { type: String, required: true },
 	},
 	orderDate: { type: Date, required: true },
-	voucher: [
-		{
-			voucherId: { type: mongoose.Types.ObjectId },
-			name: { type: String },
-			type: { type: String },
-			value: { type: Number },
-		},
-	],
+	voucher: {
+		type: [
+			{
+				voucherId: { type: mongoose.Types.ObjectId },
+				name: { type: String },
+				type: { type: String },
+				value: { type: Number },
+			},
+		],
+		default: [],
+	},
 	totalPriceWithoutDiscount: { type: Number, required: true },
 	totalPriceWithDiscount: { type: Number, required: true },
-	products: [
-		{
-			productId: { type: mongoose.Types.ObjectId, required: true },
-			quantity: { type: Number, required: true },
-			pricePerDevice: { type: Number, required: true },
-			totalPrice: { type: Number, required: true },
-		},
-	],
+	products: {
+		type: [
+			{
+				productId: { type: Types.ObjectId, required: true },
+				quantity: { type: Number, required: true },
+				pricePerDevice: { type: Number, required: true },
+				totalPrice: { type: Number, required: true },
+			},
+		],
+		validate: [
+			(arr: any) => arr.length > 0,
+			'At least one product is required.',
+		],
+	},
 })
 
 const OrderModel =

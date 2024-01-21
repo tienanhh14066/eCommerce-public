@@ -5,13 +5,11 @@ interface Warehouse {
 	product: {
 		productId: mongoose.Types.ObjectId
 		name: string
-		category: string
-		brand: string
 	}
 	supplier: { supplierId: mongoose.Types.ObjectId; name: string }
 	stock: { totalQuantityReceived: number; totalQuantityShipped: number }
-	imports: Array<{ date: Date; quantityReceived: number }>
-	exports: Array<{
+	imports?: Array<{ date: Date; quantityReceived: number }>
+	exports?: Array<{
 		orderId: mongoose.Types.ObjectId
 		date: Date
 		quantityShipped: number
@@ -25,8 +23,6 @@ const warehouseSchema = new Schema<WarehouseDocument>({
 	product: {
 		productId: { type: mongoose.Types.ObjectId, required: true },
 		name: { type: String, required: true },
-		category: { type: String, required: true },
-		brand: { type: String, required: true },
 	},
 	supplier: {
 		supplierId: { type: mongoose.Types.ObjectId, required: true },
@@ -36,19 +32,26 @@ const warehouseSchema = new Schema<WarehouseDocument>({
 		totalQuantityReceived: { type: Number, required: true },
 		totalQuantityShipped: { type: Number, required: true },
 	},
-	imports: [
-		{
-			date: { type: Date, required: true },
-			quantityReceived: { type: Number, required: true },
-		},
-	],
-	exports: [
-		{
-			orderId: { type: mongoose.Types.ObjectId, required: true },
-			date: { type: Date, required: true },
-			quantityShipped: { type: Number, required: true },
-		},
-	],
+	imports: {
+		type: [
+			{
+				date: { type: Date },
+				quantityReceived: { type: Number },
+			},
+		],
+
+		default: [],
+	},
+	exports: {
+		type: [
+			{
+				orderId: { type: mongoose.Types.ObjectId },
+				date: { type: Date },
+				quantityShipped: { type: Number },
+			},
+		],
+		default: [],
+	},
 })
 
 const WarehouseModel =
