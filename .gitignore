@@ -401,5 +401,5 @@ FodyWeavers.xsd
 .next
 
 # env
-.env./**
-!env.example
+.env/*
+!.env.example
